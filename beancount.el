@@ -181,8 +181,11 @@ _not_ followed by an account.")
     "pushtag")
   "Directive names that can appear at the beginning of a line.")
 
+(if (not (boundp 'beancount-account-roots))
+    (setq beancount-account-roots
+          '("Assets" "Liabilities" "Equity" "Income" "Expenses")))
 (defconst beancount-account-categories
-  '("Assets" "Liabilities" "Equity" "Income" "Expenses"))
+  beancount-account-roots)
 
 (defconst beancount-tag-chars "[:alnum:]-_/.")
 
